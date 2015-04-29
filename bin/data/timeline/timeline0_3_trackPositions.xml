@@ -1,0 +1,362 @@
+<positions>
+    <element name="alpha_1_0">
+        <x>0.000000000</x>
+        <y>2422.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="alpha_2_0">
+        <x>0.000000000</x>
+        <y>1782.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="alpha_3">
+        <x>0.000000000</x>
+        <y>142.000000000</y>
+        <width>640.000000000</width>
+        <height>0.000000000</height>
+    </element>
+    <element name="alpha_3_0">
+        <x>0.000000000</x>
+        <y>502.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="alpha_3_1">
+        <x>0.000000000</x>
+        <y>1142.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="alpha_3_2">
+        <x>0.000000000</x>
+        <y>1782.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="blu_1_0">
+        <x>0.000000000</x>
+        <y>2358.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="blu_2_0">
+        <x>0.000000000</x>
+        <y>1718.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="blu_3">
+        <x>0.000000000</x>
+        <y>118.000000000</y>
+        <width>640.000000000</width>
+        <height>0.000000000</height>
+    </element>
+    <element name="blu_3_0">
+        <x>0.000000000</x>
+        <y>438.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="blu_3_1">
+        <x>0.000000000</x>
+        <y>1078.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="blu_3_2">
+        <x>0.000000000</x>
+        <y>1718.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="brightness1_0">
+        <x>0.000000000</x>
+        <y>2614.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="brightness2_0">
+        <x>0.000000000</x>
+        <y>1974.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="brightness3">
+        <x>0.000000000</x>
+        <y>214.000000000</y>
+        <width>640.000000000</width>
+        <height>0.000000000</height>
+    </element>
+    <element name="brightness3_0">
+        <x>0.000000000</x>
+        <y>694.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="brightness3_1">
+        <x>0.000000000</x>
+        <y>1334.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="brightness3_2">
+        <x>0.000000000</x>
+        <y>1974.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="color_1_0">
+        <x>0.000000000</x>
+        <y>2550.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="color_2_0">
+        <x>0.000000000</x>
+        <y>1910.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="color_3">
+        <x>0.000000000</x>
+        <y>190.000000000</y>
+        <width>640.000000000</width>
+        <height>0.000000000</height>
+    </element>
+    <element name="color_3_0">
+        <x>0.000000000</x>
+        <y>630.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="color_3_1">
+        <x>0.000000000</x>
+        <y>1270.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="color_3_2">
+        <x>0.000000000</x>
+        <y>1910.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="contrast1_0">
+        <x>0.000000000</x>
+        <y>2678.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="contrast2_0">
+        <x>0.000000000</x>
+        <y>2038.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="contrast3">
+        <x>0.000000000</x>
+        <y>238.000000000</y>
+        <width>640.000000000</width>
+        <height>0.000000000</height>
+    </element>
+    <element name="contrast3_0">
+        <x>0.000000000</x>
+        <y>758.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="contrast3_1">
+        <x>0.000000000</x>
+        <y>1398.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="contrast3_2">
+        <x>0.000000000</x>
+        <y>2038.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="green_1_0">
+        <x>0.000000000</x>
+        <y>2294.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="green_2_0">
+        <x>0.000000000</x>
+        <y>1654.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="green_3">
+        <x>0.000000000</x>
+        <y>94.000000000</y>
+        <width>640.000000000</width>
+        <height>0.000000000</height>
+    </element>
+    <element name="green_3_0">
+        <x>0.000000000</x>
+        <y>374.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="green_3_1">
+        <x>0.000000000</x>
+        <y>1014.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="green_3_2">
+        <x>0.000000000</x>
+        <y>1654.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="invert1_0">
+        <x>0.000000000</x>
+        <y>2806.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="invert2_0">
+        <x>0.000000000</x>
+        <y>2166.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="invert3">
+        <x>0.000000000</x>
+        <y>286.000000000</y>
+        <width>640.000000000</width>
+        <height>0.000000000</height>
+    </element>
+    <element name="invert3_0">
+        <x>0.000000000</x>
+        <y>886.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="invert3_1">
+        <x>0.000000000</x>
+        <y>1526.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="invert3_2">
+        <x>0.000000000</x>
+        <y>2166.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="red_1_0">
+        <x>0.000000000</x>
+        <y>2230.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="red_2_0">
+        <x>0.000000000</x>
+        <y>1590.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="red_3">
+        <x>0.000000000</x>
+        <y>70.000000000</y>
+        <width>640.000000000</width>
+        <height>0.000000000</height>
+    </element>
+    <element name="red_3_0">
+        <x>0.000000000</x>
+        <y>310.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="red_3_1">
+        <x>0.000000000</x>
+        <y>950.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="red_3_2">
+        <x>0.000000000</x>
+        <y>1590.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="saturation1_0">
+        <x>0.000000000</x>
+        <y>2742.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="saturation2_0">
+        <x>0.000000000</x>
+        <y>2102.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="saturation3">
+        <x>0.000000000</x>
+        <y>262.000000000</y>
+        <width>640.000000000</width>
+        <height>0.000000000</height>
+    </element>
+    <element name="saturation3_0">
+        <x>0.000000000</x>
+        <y>822.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="saturation3_1">
+        <x>0.000000000</x>
+        <y>1462.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="saturation3_2">
+        <x>0.000000000</x>
+        <y>2102.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="trigger_1_0">
+        <x>0.000000000</x>
+        <y>2486.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="trigger_2_0">
+        <x>0.000000000</x>
+        <y>1846.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="trigger_3">
+        <x>0.000000000</x>
+        <y>166.000000000</y>
+        <width>640.000000000</width>
+        <height>0.000000000</height>
+    </element>
+    <element name="trigger_3_0">
+        <x>0.000000000</x>
+        <y>566.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="trigger_3_1">
+        <x>0.000000000</x>
+        <y>1206.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+    <element name="trigger_3_2">
+        <x>0.000000000</x>
+        <y>1846.000000000</y>
+        <width>800.000000000</width>
+        <height>40.000000000</height>
+    </element>
+</positions>

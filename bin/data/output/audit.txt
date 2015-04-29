@@ -1,0 +1,21 @@
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Sat Mar 28 01:18:14 2015
+Invocation: foremost _lpmt_settings.xml 
+Output directory: /home/sudoman/of_v0.8.4_linux64_release/apps/myApps/lpmtX/bin/data/output
+Configuration file: /usr/local/etc/foremost.conf
+------------------------------------------------------------------
+File: _lpmt_settings.xml
+Start: Sat Mar 28 01:18:14 2015
+Length: 40 KB (41255 bytes)
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+Finish: Sat Mar 28 01:18:14 2015
+
+0 FILES EXTRACTED
+	
+------------------------------------------------------------------
+
+Foremost finished at Sat Mar 28 01:18:14 2015

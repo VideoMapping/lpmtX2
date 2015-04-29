@@ -1,0 +1,12 @@
+<keyframes>
+    <key>
+        <flag>video_stop</flag>
+        <time>00:00:02:050</time>
+        <value>0.475000024</value>
+    </key>
+    <key>
+        <flag>video_play</flag>
+        <time>00:00:06:054</time>
+        <value>0.725000024</value>
+    </key>
+</keyframes>

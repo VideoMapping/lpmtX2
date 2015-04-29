@@ -1,0 +1,338 @@
+<controls>
+    <Toggle_surface_0>
+        <name>surface 0</name>
+        <value>1</value>
+    </Toggle_surface_0>
+    <Toggle_surface_1>
+        <name>surface 1</name>
+        <value>1</value>
+    </Toggle_surface_1>
+    <Toggle_surface_2>
+        <name>surface 2</name>
+        <value>1</value>
+    </Toggle_surface_2>
+    <Toggle_surface_3>
+        <name>surface 3</name>
+        <value>1</value>
+    </Toggle_surface_3>
+    <Toggle_surface_4>
+        <name>surface 4</name>
+        <value>0</value>
+    </Toggle_surface_4>
+    <Toggle_surface_5>
+        <name>surface 5</name>
+        <value>0</value>
+    </Toggle_surface_5>
+    <Toggle_surface_6>
+        <name>surface 6</name>
+        <value>0</value>
+    </Toggle_surface_6>
+    <Toggle_surface_7>
+        <name>surface 7</name>
+        <value>0</value>
+    </Toggle_surface_7>
+    <Toggle_surface_8>
+        <name>surface 8</name>
+        <value>0</value>
+    </Toggle_surface_8>
+    <Toggle_surface_9>
+        <name>surface 9</name>
+        <value>0</value>
+    </Toggle_surface_9>
+    <Toggle_surface_10>
+        <name>surface 10</name>
+        <value>0</value>
+    </Toggle_surface_10>
+    <Toggle_surface_11>
+        <name>surface 11</name>
+        <value>0</value>
+    </Toggle_surface_11>
+    <Toggle_surface_12>
+        <name>surface 12</name>
+        <value>0</value>
+    </Toggle_surface_12>
+    <Toggle_surface_13>
+        <name>surface 13</name>
+        <value>0</value>
+    </Toggle_surface_13>
+    <Toggle_surface_14>
+        <name>surface 14</name>
+        <value>0</value>
+    </Toggle_surface_14>
+    <Toggle_surface_15>
+        <name>surface 15</name>
+        <value>0</value>
+    </Toggle_surface_15>
+    <Toggle_surface_16>
+        <name>surface 16</name>
+        <value>0</value>
+    </Toggle_surface_16>
+    <Toggle_surface_17>
+        <name>surface 17</name>
+        <value>0</value>
+    </Toggle_surface_17>
+    <Toggle_surface_18>
+        <name>surface 18</name>
+        <value>0</value>
+    </Toggle_surface_18>
+    <Toggle_surface_19>
+        <name>surface 19</name>
+        <value>0</value>
+    </Toggle_surface_19>
+    <Toggle_surface_20>
+        <name>surface 20</name>
+        <value>0</value>
+    </Toggle_surface_20>
+    <Toggle_surface_21>
+        <name>surface 21</name>
+        <value>0</value>
+    </Toggle_surface_21>
+    <Toggle_surface_22>
+        <name>surface 22</name>
+        <value>0</value>
+    </Toggle_surface_22>
+    <Toggle_surface_23>
+        <name>surface 23</name>
+        <value>0</value>
+    </Toggle_surface_23>
+    <Toggle_surface_24>
+        <name>surface 24</name>
+        <value>0</value>
+    </Toggle_surface_24>
+    <Toggle_surface_25>
+        <name>surface 25</name>
+        <value>0</value>
+    </Toggle_surface_25>
+    <Toggle_surface_26>
+        <name>surface 26</name>
+        <value>0</value>
+    </Toggle_surface_26>
+    <Toggle_surface_27>
+        <name>surface 27</name>
+        <value>0</value>
+    </Toggle_surface_27>
+    <Toggle_surface_28>
+        <name>surface 28</name>
+        <value>0</value>
+    </Toggle_surface_28>
+    <Toggle_surface_29>
+        <name>surface 29</name>
+        <value>0</value>
+    </Toggle_surface_29>
+    <Toggle_surface_30>
+        <name>surface 30</name>
+        <value>0</value>
+    </Toggle_surface_30>
+    <Toggle_surface_31>
+        <name>surface 31</name>
+        <value>0</value>
+    </Toggle_surface_31>
+    <Toggle_surface_32>
+        <name>surface 32</name>
+        <value>0</value>
+    </Toggle_surface_32>
+    <Toggle_surface_33>
+        <name>surface 33</name>
+        <value>0</value>
+    </Toggle_surface_33>
+    <Toggle_surface_34>
+        <name>surface 34</name>
+        <value>0</value>
+    </Toggle_surface_34>
+    <Toggle_surface_35>
+        <name>surface 35</name>
+        <value>0</value>
+    </Toggle_surface_35>
+    <Toggle_surface_36>
+        <name>surface 36</name>
+        <value>0</value>
+    </Toggle_surface_36>
+    <Toggle_surface_37>
+        <name>surface 37</name>
+        <value>0</value>
+    </Toggle_surface_37>
+    <Toggle_surface_38>
+        <name>surface 38</name>
+        <value>0</value>
+    </Toggle_surface_38>
+    <Toggle_surface_39>
+        <name>surface 39</name>
+        <value>0</value>
+    </Toggle_surface_39>
+    <Toggle_surface_40>
+        <name>surface 40</name>
+        <value>0</value>
+    </Toggle_surface_40>
+    <Toggle_surface_41>
+        <name>surface 41</name>
+        <value>0</value>
+    </Toggle_surface_41>
+    <Toggle_surface_42>
+        <name>surface 42</name>
+        <value>0</value>
+    </Toggle_surface_42>
+    <Toggle_surface_43>
+        <name>surface 43</name>
+        <value>0</value>
+    </Toggle_surface_43>
+    <Toggle_surface_44>
+        <name>surface 44</name>
+        <value>0</value>
+    </Toggle_surface_44>
+    <Toggle_surface_45>
+        <name>surface 45</name>
+        <value>0</value>
+    </Toggle_surface_45>
+    <Toggle_surface_46>
+        <name>surface 46</name>
+        <value>0</value>
+    </Toggle_surface_46>
+    <Toggle_surface_47>
+        <name>surface 47</name>
+        <value>0</value>
+    </Toggle_surface_47>
+    <Toggle_surface_48>
+        <name>surface 48</name>
+        <value>0</value>
+    </Toggle_surface_48>
+    <Toggle_surface_49>
+        <name>surface 49</name>
+        <value>0</value>
+    </Toggle_surface_49>
+    <Toggle_surface_50>
+        <name>surface 50</name>
+        <value>0</value>
+    </Toggle_surface_50>
+    <Toggle_surface_51>
+        <name>surface 51</name>
+        <value>0</value>
+    </Toggle_surface_51>
+    <Toggle_surface_52>
+        <name>surface 52</name>
+        <value>0</value>
+    </Toggle_surface_52>
+    <Toggle_surface_53>
+        <name>surface 53</name>
+        <value>0</value>
+    </Toggle_surface_53>
+    <Toggle_surface_54>
+        <name>surface 54</name>
+        <value>0</value>
+    </Toggle_surface_54>
+    <Toggle_surface_55>
+        <name>surface 55</name>
+        <value>0</value>
+    </Toggle_surface_55>
+    <Toggle_surface_56>
+        <name>surface 56</name>
+        <value>0</value>
+    </Toggle_surface_56>
+    <Toggle_surface_57>
+        <name>surface 57</name>
+        <value>0</value>
+    </Toggle_surface_57>
+    <Toggle_surface_58>
+        <name>surface 58</name>
+        <value>0</value>
+    </Toggle_surface_58>
+    <Toggle_surface_59>
+        <name>surface 59</name>
+        <value>0</value>
+    </Toggle_surface_59>
+    <Toggle_surface_60>
+        <name>surface 60</name>
+        <value>0</value>
+    </Toggle_surface_60>
+    <Toggle_surface_61>
+        <name>surface 61</name>
+        <value>0</value>
+    </Toggle_surface_61>
+    <Toggle_surface_62>
+        <name>surface 62</name>
+        <value>0</value>
+    </Toggle_surface_62>
+    <Toggle_surface_63>
+        <name>surface 63</name>
+        <value>0</value>
+    </Toggle_surface_63>
+    <Toggle_surface_64>
+        <name>surface 64</name>
+        <value>0</value>
+    </Toggle_surface_64>
+    <Toggle_surface_65>
+        <name>surface 65</name>
+        <value>0</value>
+    </Toggle_surface_65>
+    <Toggle_surface_66>
+        <name>surface 66</name>
+        <value>0</value>
+    </Toggle_surface_66>
+    <Toggle_surface_67>
+        <name>surface 67</name>
+        <value>0</value>
+    </Toggle_surface_67>
+    <Toggle_surface_68>
+        <name>surface 68</name>
+        <value>0</value>
+    </Toggle_surface_68>
+    <Toggle_surface_69>
+        <name>surface 69</name>
+        <value>0</value>
+    </Toggle_surface_69>
+    <Toggle_surface_70>
+        <name>surface 70</name>
+        <value>0</value>
+    </Toggle_surface_70>
+    <Toggle_surface_71>
+        <name>surface 71</name>
+        <value>0</value>
+    </Toggle_surface_71>
+    <Toggle_surfaces_corner_snap>
+        <name>surfaces corner snap</name>
+        <value>1</value>
+    </Toggle_surfaces_corner_snap>
+    <Button_load_shared_video_1>
+        <name>load shared video 1</name>
+        <value>0</value>
+    </Button_load_shared_video_1>
+    <Button_load_shared_video_2>
+        <name>load shared video 2</name>
+        <value>0</value>
+    </Button_load_shared_video_2>
+    <Button_load_shared_video_3>
+        <name>load shared video 3</name>
+        <value>0</value>
+    </Button_load_shared_video_3>
+    <Button_load_shared_video_4>
+        <name>load shared video 4</name>
+        <value>0</value>
+    </Button_load_shared_video_4>
+    <Button_load_shared_video_5>
+        <name>load shared video 5</name>
+        <value>0</value>
+    </Button_load_shared_video_5>
+    <Button_load_shared_video_6>
+        <name>load shared video 6</name>
+        <value>0</value>
+    </Button_load_shared_video_6>
+    <Button_load_shared_video_7>
+        <name>load shared video 7</name>
+        <value>0</value>
+    </Button_load_shared_video_7>
+    <Button_load_shared_video_8>
+        <name>load shared video 8</name>
+        <value>0</value>
+    </Button_load_shared_video_8>
+    <Button_load_shared_video_9>
+        <name>load shared video 9</name>
+        <value>0</value>
+    </Button_load_shared_video_9>
+    <Toggle_use_timeline>
+        <name>use timeline</name>
+        <value>1</value>
+    </Toggle_use_timeline>
+    <SliderFloat_timeline_seconds>
+        <name>timeline seconds</name>
+        <value>100.000000000</value>
+    </SliderFloat_timeline_seconds>
+</controls>

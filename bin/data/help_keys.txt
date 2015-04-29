@@ -1,0 +1,46 @@
+KEY COMMANDS:
+-------------
+
+‘h’ – display this help dialog
+
+‘>’ – go to next quad
+‘<’ – go to previous quad
+‘]’ – quad next gui 
+'[' – quad previous gui 
+'+' - raise active quad position in layers pile
+'-' - lower active quad position in layers pile
+‘z’ or ‘F1’ – selects first gui page for active quad settings
+‘x’ or ‘F2’ – selects second gui page for active quad settings
+‘c’ or ‘F3’ – selects gui page for active quad corner position fine-tuning
+‘1’ – shows general settings page of gui
+'F1' – Current quad gui page 1 
+'F2' – Current quad gui page 2
+'F3' – Current quad gui page 3
+
+‘m’ – toggles mask-edit mode
+'b' – toggles deform-edit mode
+
+‘a’ – adds new quad
+‘q’ – fills window with active quad
+‘g’ – toggles gui (for quad warping with mouse gui must be switched off)
+'0' – toggles display number
+'8' – toggles master grid
+‘f’ – toggles fullscreen mode
+‘w’ – toggles cam snapshot as background on
+'W' – toggles cam snapshot as background off
+
+‘spacebar’ – toggles projection/setup modes
+‘r’ – resyncs all videos, color transitions and slideshows in all quads to starting point
+‘p’ – starts projection
+‘o’ – stops projection
+
+‘n’ – connects to a MostPixelsEver sync server
+
+’s' – saves xml default project (_lpmt_settings.xml in data folder)
+'S' – save as xml project (with dialog)
+‘l’ – loads project from xml file
+'L' – loads project from xml file (with dialog)
+
+F10 – toggle timeline 
+F11 – timeline clean screen
+F12 - timeline play/stop

@@ -1,0 +1,44 @@
+Using locale 'LC_CTYPE=en_US.UTF-8;LC_NUMERIC=he_IL.UTF-8;LC_TIME=he_IL.UTF-8;LC_COLLATE=en_US.UTF-8;LC_MONETARY=he_IL.UTF-8;LC_MESSAGES=en_US.UTF-8;LC_PAPER=he_IL.UTF-8;LC_NAME=he_IL.UTF-8;LC_ADDRESS=he_IL.UTF-8;LC_TELEPHONE=he_IL.UTF-8;LC_MEASUREMENT=he_IL.UTF-8;LC_IDENTIFICATION=he_IL.UTF-8'.
+
+
+Sat Mar 28 01:42:19 2015
+Command line: TestDisk /log /debug _lpmt_settings.xml
+
+TestDisk 6.14, Data Recovery Utility, July 2013
+Christophe GRENIER <grenier@cgsecurity.org>
+http://www.cgsecurity.org
+OS: Linux, kernel 3.13.0-24-generic (#47-Ubuntu SMP Fri May 2 23:30:00 UTC 2014) x86_64
+Compiler: GCC 4.8
+Compilation date: 2013-10-29T01:29:29
+ext2fs lib: 1.42.9, ntfs lib: libntfs-3g, reiserfs lib: none, ewf lib: none
+User is not root!
+Hard disk list
+Disk _lpmt_settings.xml - 41 KB / 40 KiB - CHS 1 255 63, sector size=512
+
+Partition table type default to Intel
+Disk _lpmt_settings.xml - 41 KB / 40 KiB
+Partition table type: Intel
+
+Analyse Disk _lpmt_settings.xml - 41 KB / 40 KiB - CHS 1 255 63
+Current partition structure:
+
+Partition sector doesn't have the endmark 0xAA55
+
+search_part()
+Disk _lpmt_settings.xml - 41 KB / 40 KiB - CHS 1 255 63
+
+Results
+Can't open backup.log file: No such file or directory
+interface_load
+
+interface_write()
+ 
+No partition found or selected for recovery
+
+search_part()
+Disk _lpmt_settings.xml - 41 KB / 40 KiB - CHS 1 255 63
+
+Results
+Can't open backup.log file: No such file or directory
+interface_load
+SIGINT detected! TestDisk has been killed.

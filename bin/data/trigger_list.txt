@@ -1,0 +1,32 @@
+ *** Trigger List ***       
+{
+        timeline on = on
+        timeline off = off
+	    Image on = img_on
+	    Image off = img_off
+        Color on = col_on
+        Color off = col_off
+        Video_on = video_on
+        Video off = video_off
+        tlMsg == video_stop
+        tlMsg == video_play
+        tlMsg == video_reset
+        Set pos. == video_position 
+        tlMsg == shared_video_on
+        tlMsg == shared_video_off
+        tlMsg == shared_video_num 
+        tlMsg == slide_on
+        tlMsg == slide_off
+        tlMsg == slide_new
+        number of Slide == slide_num
+        Camera on == cam_on
+        Cmera off == cam_off
+        Device Number == cam_num 
+        tlMsg == kinect_on
+        tlMsg == kinect_off
+        tlMsg == mask_on
+        tlMsg == mask_off
+        tlMsg == mask_invert_on
+        tlMsg == mask_invert_off
+ }       
+        

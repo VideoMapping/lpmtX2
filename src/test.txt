@@ -1,0 +1,1 @@
+ofSetupOpenGL(&window, 2880,900, OF_GAME_MODE);			  
