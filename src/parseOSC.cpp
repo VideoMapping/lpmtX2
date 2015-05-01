@@ -9,6 +9,75 @@ void ofApp::parseOsc()
     //cout << endl << "OSC message '" << m.getAddress() << " args " << m.getArgAsFloat(0) << "  " << m.getArgAsFloat(1) << " numargs " << m.getNumArgs() << endl;
 
 
+
+    //check for sampler message
+
+    if (ofIsStringInString (m.getAddress(), "/sharedsampler/")){
+            //split address " ","surface","index","show|"
+        vector<string> splittedAdress = ofSplitString(m.getAddress(),"/");
+        // erase first element (empty string), we have after split address "sharedsampler","index","record|play|playbuffernum|pause|"
+        splittedAdress.erase(splittedAdress.begin());
+        int sharedSamplerIndex=ofToInt(splittedAdress[1]);
+
+        // /sharedsampler/0/record
+        if (splittedAdress[2]=="record"){
+                if (splittedAdress.size()<3){
+                    sharedSampler[sharedSamplerIndex]->bRecLiveInput = !sharedSampler[sharedSamplerIndex]->bRecLiveInput;
+                }
+                else{
+                        //shared/sampler/0/record/0 0|1
+                    int sharedSamplerBufferIndex=ofToInt(splittedAdress[3]);
+                    int osc_recliveinput = m.getArgAsInt32(0);
+                    sharedSampler[sharedSamplerIndex]->currentBufferNum = sharedSamplerBufferIndex;
+                    if (osc_recliveinput == 0){
+                        sharedSampler[sharedSamplerIndex]->bRecLiveInput = false;
+                    }
+                    else{
+                        sharedSampler[sharedSamplerIndex]->bRecLiveInput = true;
+                    }
+                }
+        }
+        // /sharedsampler/0/play
+        if (splittedAdress[2]=="play"){
+                sharedSampler[sharedSamplerIndex]->bPlayAnyBuffer = !sharedSampler[sharedSamplerIndex]->bPlayAnyBuffer;
+        }
+        // /sharedsampler/0/pause
+        if (splittedAdress[2]=="pause"){
+                sharedSampler[sharedSamplerIndex]->bPauseBuffer = !sharedSampler[sharedSamplerIndex]->bPauseBuffer;
+        }
+        // /sharedsampler/0/clear
+        if (splittedAdress[2]=="clear"){
+                sharedSampler[sharedSamplerIndex]->clearBuffer();
+        }
+        // /sharedsampler/0/playbuffer index
+        if (splittedAdress[2]=="playbuffer"){
+                if (splittedAdress.size()<3){
+                    // play current buffer
+                    int osc_bplaybufferindex = m.getArgAsInt32(0);
+                    sharedSampler[sharedSamplerIndex]->bPlayBuffer[osc_bplaybufferindex] = !sharedSampler[sharedSamplerIndex]->bPlayBuffer[osc_bplaybufferindex];
+                    /*if (osc_bplaycurrent == 0){
+                        sharedSampler[sharedSamplerIndex]->bPlayBuffer[currentBufferNum]= false;
+                    }
+                    else {
+                        sharedSampler[sharedSamplerIndex]->bPlayBuffer[currentBufferNum]= true;
+                    }*/
+                }
+                else{
+                        // /shared/sampler/0/playbuffer/0 0|1
+                    int sharedSamplerBufferIndex=ofToInt(splittedAdress[3]);
+                    int osc_bplaybuffer = m.getArgAsInt32(0);
+                    if (osc_bplaybuffer == 0){
+                        sharedSampler[sharedSamplerIndex]->bPlayBuffer[sharedSamplerBufferIndex]= false;
+                    }
+                    else{
+                        sharedSampler[sharedSamplerIndex]->bPlayBuffer[sharedSamplerBufferIndex]= true;
+
+                    }
+
+                }
+
+        }
+    }
     // check for quads corner x movements
     if ( m.getAddress() == "/corners/x" )
     {
@@ -1482,6 +1551,56 @@ void ofApp::parseOsc()
         quads[activeQuad].camNumber = cam_num;
     }
 
+    //Shared camSampler stuff
+    else if ( m.getAddress() == "/active/sampler" )
+    {
+        quads[activeQuad].sharedSamplerBg = !quads[activeQuad].sharedSamplerBg;
+    }
+
+    // shared sampler on/off
+    else if ( m.getAddress() == "/active/sampler/show" )
+    {
+        // argument is int32
+        int osc_quad_samplerBg = m.getArgAsInt32( 0 );
+        if(osc_quad_samplerBg == 0)
+        {
+            quads[activeQuad].sharedSamplerBg = false;
+        }
+        else if(osc_quad_samplerBg == 1)
+        {
+            quads[activeQuad].sharedSamplerBg = true;
+        }
+    }
+
+    // active sampler num
+    else if ( m.getAddress() == "/active/sampler/num" )
+    {
+        // arguments are int32
+        int sampler_num = m.getArgAsFloat( 0 );
+        quads[activeQuad].sharedSamplerNum = sampler_num;
+    }
+
+    // active camsampler buffer num
+    else if ( m.getAddress() == "/active/sampler/buffernum" )
+    {
+        // if 1 args ->set buffer num
+        if (m.getNumArgs()<2){
+                // arguments are int32
+            int buffer_num = m.getArgAsFloat( 0 );
+            quads[activeQuad].sharedSamplerBufferNum = buffer_num;
+        }
+        // if 2 args -> set sampler num and buffer num
+        else
+        {
+                // arguments are int32
+            int sampler_num = m.getArgAsFloat( 0 );
+            int buffer_num = m.getArgAsFloat( 1 );
+            quads[activeQuad].sharedSamplerNum = sampler_num;
+            quads[activeQuad].sharedSamplerBufferNum = buffer_num;
+        }
+
+    }
+
     // greenscreen stuff
 
     // greenscreen threshold
@@ -2315,6 +2434,56 @@ void ofApp::parseOsc()
                 // arguments are int32
                 int cam_num = m.getArgAsFloat( 0 );
                 quads[surfaceIndex].camNumber = cam_num;
+            }
+
+            // /surface/0/cam/sampler
+            else if (splittedAdress[3]=="sampler"){
+
+                if (splittedAdress.size()<5){
+
+                    quads[surfaceIndex].sharedSamplerBg = !quads[surfaceIndex].sharedSamplerBg;
+
+                }else if (splittedAdress[4]=="show"){
+                    // argument is int32
+                    int osc_quad_samplerBg = m.getArgAsInt32( 0 );
+                    if(osc_quad_samplerBg == 0)
+                    {
+                        quads[surfaceIndex].sharedSamplerBg = false;
+                        quads[surfaceIndex].camBg = true;
+                    }
+                    else if(osc_quad_samplerBg == 1)
+                    {
+                        quads[surfaceIndex].sharedSamplerBg = true;
+                        quads[surfaceIndex].camBg = false;
+                    }
+
+                }
+                // /surface/0/cam/sampler/num
+                else if (splittedAdress[4]=="num"){
+                    //argument is int32
+                    int osc_quad_samplerNum = m.getArgAsInt32(0);
+                    quads[surfaceIndex].sharedSamplerNum=osc_quad_samplerNum;
+                }
+
+                // /surface/0/cam/sampler/buffernum
+                else if (splittedAdress[4]=="buffernum"){
+                    // if 1 args ->set buffer num
+                    if (m.getNumArgs()<2){
+                        // arguments are int32
+                        int buffer_num = m.getArgAsFloat( 0 );
+                        quads[surfaceIndex].sharedSamplerBufferNum = buffer_num;
+                    }
+                        // if 2 args -> set sampler num and buffer num
+                    else
+                    {
+                        // arguments are int32
+                        int sampler_num = m.getArgAsFloat( 0 );
+                        int buffer_num = m.getArgAsFloat( 1 );
+                        quads[surfaceIndex].sharedSamplerNum = sampler_num;
+                        quads[surfaceIndex].sharedSamplerBufferNum = buffer_num;
+                    }
+                }
+
             }
 
 

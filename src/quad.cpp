@@ -8,15 +8,15 @@
 
 #ifdef WITH_KINECT
 #ifdef WITH_SYPHON
-void quad::setup(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, ofShader &edgeBlendShader, ofShader &quadMaskShader, ofShader &chromaShader,  vector<ofVideoGrabber> &cameras, vector<ofxAssimpModelLoader> &models, vector<ofVideoPlayer> &sharedVideos, kinectManager &kinect, ofxSyphonClient &syphon)
+void quad::setup(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, ofShader &edgeBlendShader, ofShader &quadMaskShader, ofShader &chromaShader,  vector<ofVideoGrabber* > &cameras, vector<ofxAssimpModelLoader> &models, vector<ofVideoPlayer> &sharedVideos, kinectManager &kinect, ofxSyphonClient &syphon, vector<VideoSampler *> &sharedVideoSampler)
 #else
-void quad::setup(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, ofShader &edgeBlendShader, ofShader &quadMaskShader, ofShader &chromaShader, vector<ofVideoGrabber> &cameras, vector<ofxAssimpModelLoader> &models, vector<ofVideoPlayer> &sharedVideos, kinectManager &kinect)
+void quad::setup(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, ofShader &edgeBlendShader, ofShader &quadMaskShader, ofShader &chromaShader, vector<ofVideoGrabber* > &cameras, vector<ofxAssimpModelLoader> &models, vector<ofVideoPlayer> &sharedVideos, kinectManager &kinect, vector<VideoSampler *> &sharedVideoSampler)
 #endif
 #else
 #ifdef WITH_SYPHON
-void quad::setup(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, ofShader &edgeBlendShader, ofShader &quadMaskShader, ofShader &chromaShader, vector<ofVideoGrabber> &cameras, vector<ofxAssimpModelLoader> &models, vector<ofVideoPlayer> &sharedVideos, ofxSyphonClient &syphon)
+void quad::setup(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, ofShader &edgeBlendShader, ofShader &quadMaskShader, ofShader &chromaShader, vector<ofVideoGrabber* > &cameras, vector<ofxAssimpModelLoader> &models, vector<ofVideoPlayer> &sharedVideos, ofxSyphonClient &syphon, vector<VideoSampler *> &sharedVideoSampler)
 #else
-void quad::setup(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, ofShader &edgeBlendShader, ofShader &quadMaskShader, ofShader &chromaShader, vector<ofVideoGrabber> &cameras, vector<ofxAssimpModelLoader> &models, vector<ofVideoPlayer> &sharedVideos)
+void quad::setup(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4, ofShader &edgeBlendShader, ofShader &quadMaskShader, ofShader &chromaShader, vector<ofVideoGrabber* > &cameras, vector<ofxAssimpModelLoader> &models, vector<ofVideoPlayer> &sharedVideos, vector<VideoSampler *> &sharedVideoSampler)
 #endif
 #endif
 {
@@ -36,6 +36,7 @@ void quad::setup(float x1, float y1, float x2, float y2, float x3, float y3, flo
 #endif
     vids = sharedVideos;
     cams = cameras;
+    sampler = sharedVideoSampler;
 
     if(cams.size()>0)
     {
@@ -111,6 +112,9 @@ void quad::setup(float x1, float y1, float x2, float y2, float x3, float y3, flo
     sharedVideoBg = false;
     sharedVideoNum = 1;
     sharedVideoId = sharedVideoNum -1;
+    sharedSamplerBg = false;
+    sharedSamplerNum=0;
+    sharedSamplerBufferNum=0;
     slideshowBg = False;
     slideFit = False;
     slideKeepAspect = True;
@@ -383,11 +387,7 @@ void quad::update()
 
             if (video.isLoaded())
             {
-                /*seems it doesn't exist in OF v0.8
-                video.idleMovie();
-                using instead*/
                 video.update();
-
             }
 
             // changevideo speed
@@ -847,12 +847,12 @@ void quad::draw()
 
         // camera ------------------------------------------------------------------------------
         // camera stuff
-        if (camAvailable && camBg && cams[camNumber].width > 0)
+        if (camAvailable && camBg && cams[camNumber]->width > 0)
         {
             if (camFit)
             {
-                float fitX = float(ofGetWidth()/cams[camNumber].getWidth());
-                float fitY = float(ofGetHeight()/cams[camNumber].getHeight());
+                float fitX = float(ofGetWidth()/cams[camNumber]->getWidth());
+                float fitY = float(ofGetHeight()/cams[camNumber]->getHeight());
                 if (camKeepAspect)
                 {
                     // we calculate the factor for fitting the image in quad respecting img aspect ratio
@@ -873,6 +873,74 @@ void quad::draw()
                     camMultX = fitX;
                     camMultY = fitY;
                 }
+            }
+            ofSetColor(camColorize.r * 255 * timelineRed, camColorize.g * 255 * timelineGreen, camColorize.b * 255 * timelineBlu, camColorize.a * 255 * timelineAlpha);
+            if (camGreenscreen)
+            {
+                greenscreenShader->begin();
+                greenscreenShader->setUniformTexture("tex", cams[camNumber]->getTexture(),0 );
+                greenscreenShader->setUniform1f("greenscreenR", colorGreenscreen.r);
+                greenscreenShader->setUniform1f("greenscreenG", colorGreenscreen.g);
+                greenscreenShader->setUniform1f("greenscreenB", colorGreenscreen.b);
+                // we pass tint values too
+                greenscreenShader->setUniform1f("tintR", camColorize.r);
+                greenscreenShader->setUniform1f("tintG", camColorize.g);
+                greenscreenShader->setUniform1f("tintB", camColorize.b);
+                greenscreenShader->setUniform1f("greenscreenT", (float)thresholdGreenscreen/255.0);
+                cams[camNumber]->getTexture().draw(0,0,camWidth*camMultX,camHeight*camMultY);
+                greenscreenShader->end();
+            }
+            else
+            {
+                cams[camNumber]->getTexture().draw(0,0,camWidth*camMultX,camHeight*camMultY);
+
+            }
+            /*if(camBrick)
+            {
+              /*  brickwallShader->begin();
+              //  brickwallShader.setUniform3f("BrickColor",1.0,1.0,1.0);
+                brickwallShader->end();
+            }
+            else
+            {
+                //camTexture.draw(0,0,camWidth*camMultX,camHeight*camMultY); // orig
+                //cams[camNumber]->getNextVideoFrame().getTextureRef().draw(0,0,camWidth*camMultX,camHeight*camMultY);
+
+                //cams[camNumber]->getTexture().draw(0,0,camWidth*camMultX,camHeight*camMultY);
+
+            }*/
+            if (camHFlip || camVFlip)
+            {
+                glPopMatrix();
+            }
+        }
+
+        if (sharedSamplerBg) //setting are taken from cam settings
+            {
+             if (camFit)
+            {
+                float fitX = float(ofGetWidth()/cams[camNumber]->getWidth());
+                float fitY = float(ofGetHeight()/cams[camNumber]->getHeight());
+                if (camKeepAspect)
+                    {
+                        // we calculate the factor for fitting the image in quad respecting img aspect ratio
+                        if (fitX >= fitY)
+                        {
+                            camMultX = fitY;
+                            camMultX = fitY;
+                        }
+                        else
+                        {
+                            camMultX = fitX;
+                            camMultY = fitX;
+                        }
+                    }
+                    // this is for stretching image to whole quad size
+                    else
+                    {
+                        camMultX = fitX;
+                        camMultY = fitY;
+                    }
 
             }
             if (camHFlip || camVFlip)
@@ -898,7 +966,7 @@ void quad::draw()
             if (camGreenscreen)
             {
                 greenscreenShader->begin();
-                greenscreenShader->setUniformTexture("tex", cams[camNumber].getTextureReference(),0 );
+                greenscreenShader->setUniformTexture("tex", cams[camNumber]->getTexture(),0 );
                 greenscreenShader->setUniform1f("greenscreenR", colorGreenscreen.r);
                 greenscreenShader->setUniform1f("greenscreenG", colorGreenscreen.g);
                 greenscreenShader->setUniform1f("greenscreenB", colorGreenscreen.b);
@@ -907,13 +975,12 @@ void quad::draw()
                 greenscreenShader->setUniform1f("tintG", camColorize.g);
                 greenscreenShader->setUniform1f("tintB", camColorize.b);
                 greenscreenShader->setUniform1f("greenscreenT", (float)thresholdGreenscreen/255.0);
-                cams[camNumber].getTextureReference().draw(0,0,camWidth*camMultX,camHeight*camMultY);
+                sampler[sharedSamplerNum]->drawBuffer(0,0,camWidth*camMultX,camHeight*camMultY, sharedSamplerBufferNum);
                 greenscreenShader->end();
             }
             else
             {
-                //camTexture.draw(0,0,camWidth*camMultX,camHeight*camMultY); // orig
-                cams[camNumber].getTextureReference().draw(0,0,camWidth*camMultX,camHeight*camMultY);
+                sampler[sharedSamplerNum]->drawBuffer(0,0,camWidth*camMultX,camHeight*camMultY, sharedSamplerBufferNum);
 
             }
             /*if(camBrick)
