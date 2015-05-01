@@ -91,7 +91,10 @@ void ofApp::setXml()
 
             XML.setValue("QUADS:QUAD_"+ofToString(i)+":ANIMA:ANIMATE",quads[i].bAnimate);
 
-
+            //Sampler settings
+            XML.setValue("QUADS:QUAD_"+ofToString(i)+":SAMPLER:ACTIVE",quads[i].sharedSamplerBg);
+            XML.setValue("QUADS:QUAD_"+ofToString(i)+":SAMPLER:NUM",quads[i].sharedSamplerNum);
+            XML.setValue("QUADS:QUAD_"+ofToString(i)+":SAMPLER:BUFFERNUM",quads[i].sharedSamplerBufferNum);
 
             XML.setValue("QUADS:QUAD_"+ofToString(i)+":COLOR:R",quads[i].bgColor.r);
             XML.setValue("QUADS:QUAD_"+ofToString(i)+":COLOR:G",quads[i].bgColor.g);
@@ -220,15 +223,15 @@ void ofApp::getXml(string xmlFile)
 
         #ifdef WITH_KINECT
             #ifdef WITH_SYPHON
-            quads[i].setup(x0, y0, x1, y1, x2, y2, x3, y3, edgeBlendShader, quadMaskShader, chromaShader, cameras, models, sharedVideos, kinect, syphClient);
+            quads[i].setup(x0, y0, x1, y1, x2, y2, x3, y3, edgeBlendShader, quadMaskShader, chromaShader, cameras, models, sharedVideos, kinect, syphClient, sharedSampler);
             #else
-            quads[i].setup(x0, y0, x1, y1, x2, y2, x3, y3, edgeBlendShader, quadMaskShader, chromaShader, cameras, models, sharedVideos, kinect);
+            quads[i].setup(x0, y0, x1, y1, x2, y2, x3, y3, edgeBlendShader, quadMaskShader, chromaShader, cameras, models, sharedVideos, kinect, sharedSampler);
             #endif
         #else
             #ifdef WITH_SYPHON
-            quads[i].setup(x0, y0, x1, y1, x2, y2, x3, y3, edgeBlendShader, quadMaskShader, chromaShader, cameras, models, sharedVideos, syphClient);
+            quads[i].setup(x0, y0, x1, y1, x2, y2, x3, y3, edgeBlendShader, quadMaskShader, chromaShader, cameras, models, sharedVideos, syphClient, sharedSampler);
             #else
-            quads[i].setup(x0, y0, x1, y1, x2, y2, x3, y3, edgeBlendShader, quadMaskShader, chromaShader, cameras, models, sharedVideos);
+            quads[i].setup(x0, y0, x1, y1, x2, y2, x3, y3, edgeBlendShader, quadMaskShader, chromaShader, cameras, models, sharedVideos, sharedSampler);
             #endif
         #endif
         quads[i].quadNumber = XML.getValue("QUADS:QUAD_"+ofToString(i)+":NUMBER", 0);
@@ -315,14 +318,11 @@ void ofApp::getXml(string xmlFile)
         quads[i].animaMovex = XML.getValue("QUADS:QUAD_"+ofToString(i)+":ANIMA:MOVE_X",216.0);
         quads[i].animaMovey = XML.getValue("QUADS:QUAD_"+ofToString(i)+":ANIMA:MOVE_Y",216.0);
         quads[i].animaMovez = XML.getValue("QUADS:QUAD_"+ofToString(i)+":ANIMA:MOVE_Z",0.0);
-
         quads[i].bAnimate = XML.getValue("QUADS:QUAD_"+ofToString(i)+":ANIMA:ANIMATE", 1);
-
-
-
-
-
-
+        //sampler settings
+        quads[i].sharedSamplerBg = XML.getValue("QUADS:QUAD_"+ofToString(i)+":SAMPLER:ACTIVE", 0);
+        quads[i].sharedSamplerNum = XML.getValue("QUADS:QUAD_"+ofToString(i)+":SAMPLER:NUM", 0.0);
+        quads[i].sharedSamplerBufferNum = XML.getValue("QUADS:QUAD_"+ofToString(i)+":SAMPLER:BUFFERNUM", 0.0);
 
 
         quads[i].bgColor.r = XML.getValue("QUADS:QUAD_"+ofToString(i)+":COLOR:R",0.0);
