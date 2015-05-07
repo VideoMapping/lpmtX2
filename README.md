@@ -22,21 +22,24 @@ Todo
 
 *autosave 
 
-*add more shaders 
-
-*fix 3d Smooth Render
+*enable saving deform grid dots 
 
 *run while load/save dialog active
 
-*interactive quad (cv, tuio)
-
-*enable grid dots saving
-
-*quads positions
-
 *mask paintbrush mode
 
+*fix 3d Smooth Render
+
+*more shaders 
+
+*interactive quad 
+ 
+*quads presets
+
 *DMX control (as already claimed)
+
+*midi mapping
+
 
 Screenshots:
 ------------
