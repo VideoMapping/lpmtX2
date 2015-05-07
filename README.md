@@ -1,7 +1,8 @@
 # lpmtX2
 
-LPMTX2 is a new experiment with hva LPMT updated to of0.9.x
-------------------------------------------------------------
+LPMTX2 is a new experiment with hva LPMT 
+
+updated to of0.9.x by jamet 
 
 done 
 ----
@@ -180,4 +181,4 @@ www.hv-a.com
 
 # lpmtX2
 the new version of hva lpmt
-updated to of0.9.x
+updated to of0.9.x by jamet
