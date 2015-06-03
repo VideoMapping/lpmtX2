@@ -1,0 +1,37 @@
+#! /bin/bash
+# ofxMidi/
+git clone https://github.com/danomatika/ofxMidi
+
+#ofxMostPixelsEver/
+git clone https://github.com/hvfrancesco/ofxMostPixelsEver
+
+#ofxMSAInteractiveObject/
+git clone https://github.com/hvfrancesco/ofxMSAInteractiveObject
+
+#ofxMSATimer/
+git clone https://github.com/obviousjim/ofxMSATimer.git
+
+#ofxRange/
+git clone https://github.com/Flightphase/ofxRange.git
+
+#ofxSimpleGuiToo/
+git clone https://github.com/hvfrancesco/ofxSimpleGuiToo
+
+#ofxTextInputField/
+git clone https://github.com/isthisgood/ofxTextInputField
+
+#ofxTimecode/
+git clone https://github.com/YCAMInterlab/ofxTimecode.git
+
+#ofxTimeline/
+git clone https://github.com/ixds/ofxTimeline.git
+
+#ofxTLButtons/
+git clone https://github.com/hvfrancesco/ofxTLButtons
+
+#ofxTween/
+git clone https://github.com/arturoc/ofxTween.git
+
+#ofxVideoBuffer/
+git clone https://github.com/DHaylock/ofxVideoBuffer.git
+
