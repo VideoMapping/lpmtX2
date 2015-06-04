@@ -14,3 +14,4 @@ ofxTween
 ofxMidi
 ofxSimpleGuiToo
 ofxMostPixelsEver
+ofxVideoBuffer

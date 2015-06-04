@@ -116,6 +116,11 @@ void ofApp::timelineTriggerReceived(ofxTLBangEventArgs& trigger){
         else if (tlMsg == "mask_off"){ quads[tlQuad].bMask=false; }
         else if (tlMsg == "mask_invert_on"){ quads[tlQuad].maskInvert=true; }
         else if (tlMsg == "mask_invert_off"){ quads[tlQuad].maskInvert=false; }
+        else if (tlMsg == "sampler_on"){ quads[tlQuad].sharedSamplerBg=true; }
+        else if (tlMsg == "sampler_off"){ quads[tlQuad].sharedSamplerBg=false; }
+        else if (tlMsg == "sampler_num" && tlMsgParameter != ""){ quads[tlQuad].sharedSamplerNum=ofToInt(tlMsgParameter); }
+        else if (tlMsg == "sampler_buffernum" && tlMsgParameter != ""){ quads[tlQuad].sharedSamplerBufferNum=ofToInt(tlMsgParameter); }
+
         else { cout << "unknown trigger command '" << tlMsg << "' on surface " << tlQuad << endl;}
         }
         else
