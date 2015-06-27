@@ -107,6 +107,7 @@ public:
     bool gridSetup;
     bool bCameraOk;
     bool bSnapOn;
+    bool bshowFPS;
 
     ofImage splashImg;
     ofImage splashImg2;

@@ -1045,6 +1045,11 @@ void ofApp::draw()
         splashImg2.draw(((ofGetWidth()/2)-340),((ofGetHeight()/2)-400));
         ofDisableAlphaBlending();
     }
+
+         if (bshowFPS)
+     {
+          ofDrawBitmapString("FPS: " + ofToString(int(ofGetFrameRate())),20,ofGetHeight()-40);
+     }
 }
 
 
@@ -1774,6 +1779,9 @@ void ofApp::keyPressed(int key)
             quads[activeQuad].video.isPaused();
             }
 
+        if ( key == OF_KEY_F8){
+             bshowFPS = ! bshowFPS;
+        }
 
     }
 
