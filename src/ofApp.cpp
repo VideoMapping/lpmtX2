@@ -1636,7 +1636,12 @@ void ofApp::keyPressed(int key)
             ofBuffer buf = ofBufferFromFile("trigger_list.txt");
             ofSystemAlertDialog(buf);
         }
-
+        // displays triggers in system dialog
+        if((key == 'O') && !bTimeline)
+        {
+            ofBuffer buf = ofBufferFromFile("osc_list.txt");
+            ofSystemAlertDialog(buf);
+        }
 
         // show-hide stage when timeline is shown
         if(key == OF_KEY_F11 && bTimeline)
