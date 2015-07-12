@@ -3,7 +3,7 @@ KEY COMMANDS:
 
 ‘h’ – display this help dialog
 't' - display trigger help dialog
-'o' - display osc trigger list 
+'O' - display osc trigger list 
 
 ‘>’ – go to next quad
 ‘<’ – go to previous quad
