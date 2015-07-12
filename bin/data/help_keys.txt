@@ -2,6 +2,8 @@ KEY COMMANDS:
 -------------
 
 ‘h’ – display this help dialog
+'t' - display trigger help dialog
+'o' - display osc trigger list 
 
 ‘>’ – go to next quad
 ‘<’ – go to previous quad
@@ -10,12 +12,15 @@ KEY COMMANDS:
 '+' - raise active quad position in layers pile
 '-' - lower active quad position in layers pile
 ‘z’ or ‘F1’ – selects first gui page for active quad settings
-‘x’ or ‘F2’ – selects second gui page for active quad settings
-‘c’ or ‘F3’ – selects gui page for active quad corner position fine-tuning
+‘x’ or ‘F2’ – selects second gui page for active quad settings / delete last point in mask mode
+‘c’ or ‘F3’ – selects gui page for active quad corner position fine-tuning /clear mask in mask mode
 ‘1’ – shows general settings page of gui
 'F1' – Current quad gui page 1 
 'F2' – Current quad gui page 2
 'F3' – Current quad gui page 3
+'/'  - center active quad
+'(' - center active quad 4/3
+'!' - pause video
 
 ‘m’ – toggles mask-edit mode
 'b' – toggles deform-edit mode
@@ -28,6 +33,13 @@ KEY COMMANDS:
 ‘f’ – toggles fullscreen mode
 ‘w’ – toggles cam snapshot as background on
 'W' – toggles cam snapshot as background off
+'*' - toggles rgba/bgra cam pixel format
+'#' - rotate quad around quad center to left
+'$' - rotate quad around quad center to right
+
+'v'  - general settings gui page
+
+'d'|'D' - delete last point in mask-edit mode
 
 ‘spacebar’ – toggles projection/setup modes
 ‘r’ – resyncs all videos, color transitions and slideshows in all quads to starting point
@@ -41,6 +53,7 @@ KEY COMMANDS:
 ‘l’ – loads project from xml file
 'L' – loads project from xml file (with dialog)
 
+F8 - toggle fps counter
 F10 – toggle timeline 
 F11 – timeline clean screen
 F12 - timeline play/stop
