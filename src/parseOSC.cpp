@@ -39,7 +39,20 @@ void ofApp::parseOsc()
         }
         // /sharedsampler/0/play
         if (splittedAdress[2]=="play"){
-                sharedSampler[sharedSamplerIndex]->bPlayAnyBuffer = !sharedSampler[sharedSamplerIndex]->bPlayAnyBuffer;
+                if ( m.getNumArgs() == 0 ){
+                    sharedSampler[sharedSamplerIndex]->bPlayAnyBuffer = !sharedSampler[sharedSamplerIndex]->bPlayAnyBuffer;
+                }
+                else{
+                    int osc_playany = m.getArgAsInt32(0);
+                    if ( osc_playany ==  0){
+                        sharedSampler[sharedSamplerIndex]->bPlayAnyBuffer = false;
+                    }
+                    else{
+                        sharedSampler[sharedSamplerIndex]->bPlayAnyBuffer = true;
+                    }
+
+                }
+
         }
         // /sharedsampler/0/pause
         if (splittedAdress[2]=="pause"){
