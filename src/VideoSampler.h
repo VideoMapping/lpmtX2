@@ -42,14 +42,14 @@ public:
     ofImageType pix_type;
 
     //Recording
-    bool bSetPosition;
-    bool bRecLiveInput;
+    bool bSetPosition=false;
+    bool bRecLiveInput=false;
     int recordPosition;
 
     //Playing
     array <bool, NUM_BUFFER> bPlayBuffer ;// (NUM_BUFFER);
-    bool bPlayAnyBuffer;    //increment playhead regerdless of current buffer
-    bool bPauseBuffer;
+    bool bPlayAnyBuffer=false;    //increment playhead regerdless of current buffer
+    bool bPauseBuffer=false;
     float playStart;
     float playEnd;
     int bufferSize;
