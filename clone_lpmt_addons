@@ -18,7 +18,7 @@ git clone https://github.com/Flightphase/ofxRange.git
 git clone https://github.com/hvfrancesco/ofxSimpleGuiToo
 
 #ofxTextInputField/
-git clone https://github.com/isthisgood/ofxTextInputField
+git clone https://github.com/Flightphase/ofxTextInputField.git -b develop
 
 #ofxTimecode/
 git clone https://github.com/YCAMInterlab/ofxTimecode.git
