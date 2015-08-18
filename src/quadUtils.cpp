@@ -72,8 +72,8 @@ void quad::loadVideoFromFile(string videoName, string videoPath)
     }
 
     video.loadMovie(videoPath);
-    videoWidth = video.width;
-    videoHeight = video.height;
+    videoWidth = video.getWidth();
+    videoHeight = video.getHeight();
 
     video.play();
     loadedVideo = videoName;
@@ -101,7 +101,7 @@ int quad::getdir (string dir, vector<string> &files)
 //---------------------------------------------------------------
 void quad::setupCamera()
 {
-    camWidth = cams[camNumber]->width;
-    camHeight = cams[camNumber]->height;
+    camWidth =  cams[camNumber]->getWidth();
+    camHeight = cams[camNumber]->getHeight();
 
 }
