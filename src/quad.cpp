@@ -797,17 +797,17 @@ void quad::draw()
                 glPushMatrix();
                 if(sVideoHFlip && !sVideoVFlip)
                 {
-                    ofTranslate(vids[sharedVideoId].width*videoMultX,0);
+                    ofTranslate(vids[sharedVideoId].getWidth()*videoMultX,0);
                     glScalef(-1,1,1);
                 }
                 else if(sVideoVFlip && !sVideoHFlip)
                 {
-                    ofTranslate(0,vids[sharedVideoId].height*videoMultY);
+                    ofTranslate(0,vids[sharedVideoId].getHeight()*videoMultY);
                     glScalef(1,-1,1);
                 }
                 else
                 {
-                    ofTranslate(vids[sharedVideoId].width*videoMultX,vids[sharedVideoId].height*videoMultY);
+                    ofTranslate(vids[sharedVideoId].getWidth()*videoMultX,vids[sharedVideoId].getHeight()*videoMultY);
                     glScalef(-1,-1,1);
                 }
             }
@@ -824,12 +824,12 @@ void quad::draw()
                 greenscreenShader->setUniform1f("tintG", videoColorize.g);
                 greenscreenShader->setUniform1f("tintB", videoColorize.b);
                 greenscreenShader->setUniform1f("greenscreenT", (float)thresholdGreenscreen/255.0);
-                vids[sharedVideoId].draw(0,0,vids[sharedVideoId].width*videoMultX, vids[sharedVideoId].height*videoMultY);
+                vids[sharedVideoId].draw(0,0,vids[sharedVideoId].getWidth()*videoMultX, vids[sharedVideoId].getHeight()*videoMultY);
                 greenscreenShader->end();
             }
             else
             {
-                vids[sharedVideoId].draw(0,0,vids[sharedVideoId].width*videoMultX, vids[sharedVideoId].height*videoMultY);
+                vids[sharedVideoId].draw(0,0,vids[sharedVideoId].getWidth()*videoMultX, vids[sharedVideoId].getHeight()*videoMultY);
             }
             if (sVideoHFlip || sVideoVFlip)
             {
@@ -847,7 +847,7 @@ void quad::draw()
 
         // camera ------------------------------------------------------------------------------
         // camera stuff
-        if (camAvailable && camBg && cams[camNumber]->width > 0)
+        if (camAvailable && camBg && cams[camNumber]->getWidth() > 0)
         {
             if (camFit)
             {

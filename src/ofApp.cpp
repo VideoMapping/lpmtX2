@@ -87,8 +87,8 @@ void ofApp::setup()
            	//cam->setDesiredFrameRate(30);
 
             bCameraOk = cam->setup(reqCamWidth,reqCamHeight);
-            camWidth = cam->width;
-            camHeight= cam->height;
+            camWidth = cam->getWidth();
+            camHeight= cam->getHeight();
             //setup Sampler
             VideoSampler * _sampler=new VideoSampler;
            _sampler->setup(*cam, parseDesiredImageType(cam_pix_format));
@@ -1222,9 +1222,9 @@ void ofApp::keyPressed(int key)
             {
                 ofImage img;
                 img.clone(loadImageFromFile());
-                snapshotTexture.allocate(img.width,img.height, GL_RGB);
+                snapshotTexture.allocate(img.getWidth(),img.getHeight(), GL_RGB);
                 unsigned char * pixels = img.getPixels();
-                snapshotTexture.loadData(pixels, img.width,img.height, GL_RGB);
+                snapshotTexture.loadData(pixels, img.getWidth(),img.getHeight(), GL_RGB);
             }
         }
 
