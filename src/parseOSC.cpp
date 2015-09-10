@@ -2135,7 +2135,11 @@ void ofApp::parseOsc()
         int surfaceIndex=ofToInt(splittedAdress[1]);
 
         // /surface/add
-        if (splittedAdress[2]=="add"){
+
+        if (splittedAdress[1]=="add"){
+
+
+
             #ifdef WITH_KINECT
             #ifdef WITH_SYPHON
                 quads[nOfQuads].setup(0.25,0.25,0.75,0.25,0.75,0.75,0.25,0.75, edgeBlendShader, quadMaskShader, chromaShader, cameras, models, sharedVideos, kinect, syphClient, sharedSampler);
