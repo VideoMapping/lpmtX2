@@ -2134,6 +2134,41 @@ void ofApp::parseOsc()
         splittedAdress.erase(splittedAdress.begin());
         int surfaceIndex=ofToInt(splittedAdress[1]);
 
+        // /surface/add
+
+        if (splittedAdress[1]=="add"){
+
+
+
+            #ifdef WITH_KINECT
+            #ifdef WITH_SYPHON
+                quads[nOfQuads].setup(0.25,0.25,0.75,0.25,0.75,0.75,0.25,0.75, edgeBlendShader, quadMaskShader, chromaShader, cameras, models, sharedVideos, kinect, syphClient, sharedSampler);
+            #else
+                quads[nOfQuads].setup(0.25,0.25,0.75,0.25,0.75,0.75,0.25,0.75, edgeBlendShader, quadMaskShader, chromaShader, cameras, models, sharedVideos, kinect, sharedSampler);
+            #endif
+            #else
+            #ifdef WITH_SYPHON
+                quads[nOfQuads].setup(0.25,0.25,0.75,0.25,0.75,0.75,0.25,0.75, edgeBlendShader, quadMaskShader, chromaShader, cameras, models, sharedVideos, syphClient, sharedSampler);
+            #else
+                quads[nOfQuads].setup(0.25,0.25,0.75,0.25,0.75,0.75,0.25,0.75, edgeBlendShader, quadMaskShader, chromaShader, cameras, models, sharedVideos, sharedSampler);
+            #endif
+            #endif
+                quads[nOfQuads].quadNumber = nOfQuads;
+                layers[nOfQuads] = nOfQuads;
+                quads[nOfQuads].layer = nOfQuads;
+                quads[activeQuad].isActive = False;
+                quads[nOfQuads].isActive = True;
+                activeQuad = nOfQuads;
+                ++nOfQuads;
+                gui.setPage((activeQuad*4)+2);
+                                // add timeline page for new quad
+            #ifdef WITH_TIMELINE
+                timelineAddQuadPage(activeQuad);
+            #endif
+                            // next line fixes a bug i've been tracking down for a looong time
+                glDisable(GL_DEPTH_TEST);
+        }
+
         // /surface/0/show
         if (splittedAdress[2]=="show"){
             // arguments is int (on/off)
@@ -2271,6 +2306,14 @@ void ofApp::parseOsc()
                         float img_mult_y = m.getArgAsFloat( 0 );
                         quads[surfaceIndex].imgMultY = img_mult_y;
                     }
+                    else if (splittedAdress[4]=="xy")
+                    {
+                        float img_mult_x = m.getArgAsFloat( 0 );
+                        quads[surfaceIndex].imgMultX = img_mult_x;
+                         // arguments are f
+                        float img_mult_y = m.getArgAsFloat( 1 );
+                        quads[surfaceIndex].imgMultY = img_mult_y;
+                    }
                 }
             }
 
@@ -2396,6 +2439,14 @@ void ofApp::parseOsc()
                     {
                          // arguments are f
                         float cam_mult_y = m.getArgAsFloat( 0 );
+                        quads[surfaceIndex].camMultY = cam_mult_y;
+                    }
+                    else if (splittedAdress[4]=="xy")
+                    {
+                         // arguments are f
+                        float cam_mult_x = m.getArgAsFloat( 0 );
+                        quads[surfaceIndex].camMultX = cam_mult_x;
+                        float cam_mult_y = m.getArgAsFloat( 1 );
                         quads[surfaceIndex].camMultY = cam_mult_y;
                     }
                 }
@@ -2622,6 +2673,14 @@ void ofApp::parseOsc()
                     {
                          // arguments are f
                         float video_mult_y = m.getArgAsFloat( 0 );
+                        quads[surfaceIndex].videoMultY = video_mult_y;
+                    }
+                    else if (splittedAdress[4]=="xy")
+                    {
+                         // arguments are f
+                        float video_mult_x = m.getArgAsFloat( 0 );
+                        quads[surfaceIndex].videoMultX = video_mult_x;
+                        float video_mult_y = m.getArgAsFloat( 1 );
                         quads[surfaceIndex].videoMultY = video_mult_y;
                     }
                 }
@@ -3759,6 +3818,14 @@ void ofApp::parseOsc()
                     float kinect_mult_y = m.getArgAsFloat( 0 );
                     quads[activeQuad].kinectMultY = kinect_mult_y;
                 }
+                else if (splittedAdress[4]=="xy")
+                {
+                    // arguments are f
+                    float kinect_mult_x = m.getArgAsFloat( 0 );
+                    quads[surfaceIndex].kinectMultX = kinect_mult_x;
+                    float kinect_mult_y = m.getArgAsFloat( 1 );
+                    quads[activeQuad].kinectMultY = kinect_mult_y;
+                }
 
 			}
 
@@ -3969,7 +4036,7 @@ void ofApp::parseOsc()
         {
             if(oscHotkeyMessages.size()>0 && oscHotkeyMessages.size() == oscHotkeyKeys.size())
             {
-                for(int i=0; i < oscHotkeyMessages.size(); i++)
+                for(unsigned int i=0; i < oscHotkeyMessages.size(); i++)
                 {
                     // check if we already have a message for selected hotkey and eventually removes it
                     if(oscHotkeyKeys[i] == midiHotkeyPressed)
@@ -3992,7 +4059,7 @@ void ofApp::parseOsc()
         if(oscHotkeyMessages.size()>0 && oscHotkeyMessages.size() == oscHotkeyKeys.size())
         {
             bool keyFound = false;
-            for(int i=0; i < oscHotkeyMessages.size(); i++)
+            for(unsigned int i=0; i < oscHotkeyMessages.size(); i++)
             {
                 ofxOscMessage oscControl = oscHotkeyMessages[i];
                 if(m.getAddress() == oscControl.getAddress())
@@ -4032,9 +4099,9 @@ void ofApp::parseOsc()
             }
 
         // gui coupling stuff
-        for(int i=0; i < gui.getPages().size(); i++)
+        for(unsigned int i=0; i < gui.getPages().size(); i++)
         {
-            for(int j=0; j < gui.getPages()[i]->getControls().size(); j++)
+            for(unsigned int j=0; j < gui.getPages()[i]->getControls().size(); j++)
             {
                 // toggle case
                 if(gui.getPages()[i]->getControls()[j]->controlType == "Toggle")
