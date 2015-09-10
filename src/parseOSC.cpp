@@ -2134,6 +2134,37 @@ void ofApp::parseOsc()
         splittedAdress.erase(splittedAdress.begin());
         int surfaceIndex=ofToInt(splittedAdress[1]);
 
+        // /surface/add
+        if (splittedAdress[2]=="add"){
+            #ifdef WITH_KINECT
+            #ifdef WITH_SYPHON
+                quads[nOfQuads].setup(0.25,0.25,0.75,0.25,0.75,0.75,0.25,0.75, edgeBlendShader, quadMaskShader, chromaShader, cameras, models, sharedVideos, kinect, syphClient, sharedSampler);
+            #else
+                quads[nOfQuads].setup(0.25,0.25,0.75,0.25,0.75,0.75,0.25,0.75, edgeBlendShader, quadMaskShader, chromaShader, cameras, models, sharedVideos, kinect, sharedSampler);
+            #endif
+            #else
+            #ifdef WITH_SYPHON
+                quads[nOfQuads].setup(0.25,0.25,0.75,0.25,0.75,0.75,0.25,0.75, edgeBlendShader, quadMaskShader, chromaShader, cameras, models, sharedVideos, syphClient, sharedSampler);
+            #else
+                quads[nOfQuads].setup(0.25,0.25,0.75,0.25,0.75,0.75,0.25,0.75, edgeBlendShader, quadMaskShader, chromaShader, cameras, models, sharedVideos, sharedSampler);
+            #endif
+            #endif
+                quads[nOfQuads].quadNumber = nOfQuads;
+                layers[nOfQuads] = nOfQuads;
+                quads[nOfQuads].layer = nOfQuads;
+                quads[activeQuad].isActive = False;
+                quads[nOfQuads].isActive = True;
+                activeQuad = nOfQuads;
+                ++nOfQuads;
+                gui.setPage((activeQuad*4)+2);
+                                // add timeline page for new quad
+            #ifdef WITH_TIMELINE
+                timelineAddQuadPage(activeQuad);
+            #endif
+                            // next line fixes a bug i've been tracking down for a looong time
+                glDisable(GL_DEPTH_TEST);
+        }
+
         // /surface/0/show
         if (splittedAdress[2]=="show"){
             // arguments is int (on/off)
