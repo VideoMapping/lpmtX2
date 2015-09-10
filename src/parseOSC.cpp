@@ -2271,6 +2271,14 @@ void ofApp::parseOsc()
                         float img_mult_y = m.getArgAsFloat( 0 );
                         quads[surfaceIndex].imgMultY = img_mult_y;
                     }
+                    else if (splittedAdress[4]=="xy")
+                    {
+                        float img_mult_x = m.getArgAsFloat( 0 );
+                        quads[surfaceIndex].imgMultX = img_mult_x;
+                         // arguments are f
+                        float img_mult_y = m.getArgAsFloat( 1 );
+                        quads[surfaceIndex].imgMultY = img_mult_y;
+                    }
                 }
             }
 
@@ -2396,6 +2404,14 @@ void ofApp::parseOsc()
                     {
                          // arguments are f
                         float cam_mult_y = m.getArgAsFloat( 0 );
+                        quads[surfaceIndex].camMultY = cam_mult_y;
+                    }
+                    else if (splittedAdress[4]=="xy")
+                    {
+                         // arguments are f
+                        float cam_mult_x = m.getArgAsFloat( 0 );
+                        quads[surfaceIndex].camMultX = cam_mult_x;
+                        float cam_mult_y = m.getArgAsFloat( 1 );
                         quads[surfaceIndex].camMultY = cam_mult_y;
                     }
                 }
@@ -2622,6 +2638,14 @@ void ofApp::parseOsc()
                     {
                          // arguments are f
                         float video_mult_y = m.getArgAsFloat( 0 );
+                        quads[surfaceIndex].videoMultY = video_mult_y;
+                    }
+                    else if (splittedAdress[4]=="xy")
+                    {
+                         // arguments are f
+                        float video_mult_x = m.getArgAsFloat( 0 );
+                        quads[surfaceIndex].videoMultX = video_mult_x;
+                        float video_mult_y = m.getArgAsFloat( 1 );
                         quads[surfaceIndex].videoMultY = video_mult_y;
                     }
                 }
@@ -3759,6 +3783,14 @@ void ofApp::parseOsc()
                     float kinect_mult_y = m.getArgAsFloat( 0 );
                     quads[activeQuad].kinectMultY = kinect_mult_y;
                 }
+                else if (splittedAdress[4]=="xy")
+                {
+                    // arguments are f
+                    float kinect_mult_x = m.getArgAsFloat( 0 );
+                    quads[surfaceIndex].kinectMultX = kinect_mult_x;
+                    float kinect_mult_y = m.getArgAsFloat( 1 );
+                    quads[activeQuad].kinectMultY = kinect_mult_y;
+                }
 
 			}
 
@@ -3969,7 +4001,7 @@ void ofApp::parseOsc()
         {
             if(oscHotkeyMessages.size()>0 && oscHotkeyMessages.size() == oscHotkeyKeys.size())
             {
-                for(int i=0; i < oscHotkeyMessages.size(); i++)
+                for(unsigned int i=0; i < oscHotkeyMessages.size(); i++)
                 {
                     // check if we already have a message for selected hotkey and eventually removes it
                     if(oscHotkeyKeys[i] == midiHotkeyPressed)
@@ -3992,7 +4024,7 @@ void ofApp::parseOsc()
         if(oscHotkeyMessages.size()>0 && oscHotkeyMessages.size() == oscHotkeyKeys.size())
         {
             bool keyFound = false;
-            for(int i=0; i < oscHotkeyMessages.size(); i++)
+            for(unsigned int i=0; i < oscHotkeyMessages.size(); i++)
             {
                 ofxOscMessage oscControl = oscHotkeyMessages[i];
                 if(m.getAddress() == oscControl.getAddress())
@@ -4032,9 +4064,9 @@ void ofApp::parseOsc()
             }
 
         // gui coupling stuff
-        for(int i=0; i < gui.getPages().size(); i++)
+        for(unsigned int i=0; i < gui.getPages().size(); i++)
         {
-            for(int j=0; j < gui.getPages()[i]->getControls().size(); j++)
+            for(unsigned int j=0; j < gui.getPages()[i]->getControls().size(); j++)
             {
                 // toggle case
                 if(gui.getPages()[i]->getControls()[j]->controlType == "Toggle")
