@@ -667,7 +667,9 @@ void ofApp::setup()
     }
 
     //setup output streaming **will need to be started before if we read parameters in xml config
-    output_streamer.setup(320,240,4);
+    output_streamer.setup(320,240,5);
+    stream_image.allocate(ofGetScreenWidth(), ofGetScreenHeight(), OF_IMAGE_COLOR);
+
 }
 
 void ofApp::exit()
@@ -966,8 +968,9 @@ void ofApp::update()
         }*/
         prepare();
     }
-
-    output_streamer.update(output_streamer.pixels);
+    stream_image.grabScreen(0,0,1024,768);
+    cout<<"grabscreen"<<endl;
+    output_streamer.update(stream_image.getPixels());
 }
 
 //--------------------------------------------------------------

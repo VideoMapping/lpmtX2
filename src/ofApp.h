@@ -282,7 +282,7 @@ public:
 
     //output streaming
     ofxGstV4L2Sink output_streamer;
-    //ofPixels &stream_pixels;
+    ofImage stream_image;
 
 };
 
