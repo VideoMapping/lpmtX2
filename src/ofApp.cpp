@@ -666,6 +666,8 @@ void ofApp::setup()
         ofSetFullscreen(true);
     }
 
+    //setup output streaming **will need to be started before if we read parameters in xml config
+    output_streamer.setup(320,240,4);
 }
 
 void ofApp::exit()
@@ -964,6 +966,8 @@ void ofApp::update()
         }*/
         prepare();
     }
+
+    output_streamer.update(output_streamer.pixels);
 }
 
 //--------------------------------------------------------------

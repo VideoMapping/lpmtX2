@@ -21,6 +21,7 @@
 #include "ofxXmlSettings.h"
 #include "ofxMostPixelsEver.h"
 #include "ofxOsc.h"
+#include "ofxGstV4L2Sink.h"
 #ifdef WITH_TIMELINE
 #include "ofxTimeline.h"
 #endif
@@ -279,6 +280,9 @@ public:
 	ofxSyphonClient syphClient;
     #endif
 
+    //output streaming
+    ofxGstV4L2Sink output_streamer;
+    //ofPixels &stream_pixels;
 
 };
 

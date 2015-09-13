@@ -35,3 +35,5 @@ git clone https://github.com/arturoc/ofxTween.git
 #ofxVideoBuffer/
 git clone https://github.com/DHaylock/ofxVideoBuffer.git
 
+#ofxGstV4L2Sink
+https://github.com/emmanuelgeoffray/ofxGstV4L2Sink.git
