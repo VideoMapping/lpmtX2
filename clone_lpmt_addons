@@ -1,4 +1,7 @@
 #! /bin/bash
+# ofxDmx
+git clone https://github.com/dailyTLJ/ofxDmx
+
 # ofxMidi/
 git clone https://github.com/danomatika/ofxMidi
 

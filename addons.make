@@ -1,4 +1,5 @@
 ofxOsc
+ofxDmx
 ofxKinect
 ofxNetwork
 ofxOpenCv

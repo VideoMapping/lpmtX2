@@ -360,6 +360,11 @@ void ofApp::setup()
     timelineSetup(timelineDurationSeconds);
 #endif
 
+#ifdef WITH_DMX
+    dmx.connect(port, modules * channelsPerModule);
+	dmx.update(true); // black on startup
+#endif // WITH_DMX
+
     // GUI STUFF ---------------------------------------------------
 
     // general page
@@ -670,6 +675,10 @@ void ofApp::setup()
 
 void ofApp::exit()
 {
+#ifdef WITH_DMX
+    dmx.clear();
+	dmx.update(true); // black on shutdown
+#endif // WITH_DMX
 
 }
 
@@ -963,7 +972,23 @@ void ofApp::update()
             }
         }*/
         prepare();
+
     }
+    #ifdef WITH_DMX
+    int channel = 1;
+	for(int module = 1; module <= modules; module++) {
+        dmx.setLevel(channel++, red[module]*255);
+		dmx.setLevel(channel++, green[module]*255);
+		dmx.setLevel(channel++, blue[module]*255);
+		channel++;
+	}
+	if(dmx.isConnected()) {
+		dmx.update();
+	} else {
+        ofSetColor(255);
+        ofDrawBitmapString("Could not connect to port " + ofToString(port), 250,20);
+	}
+    #endif // WITH_DMX
 }
 
 //--------------------------------------------------------------
