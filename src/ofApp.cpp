@@ -355,15 +355,20 @@ void ofApp::setup()
     layers[3] = 3;
     quads[3].layer = 3;
 
+#ifdef WITH_DMX
+    fixtures=4;
+	channelsPerFixture=3;
+    dmx.connect(port, fixtures * channelsPerFixture);
+	dmx.update(true); // black on startup
+
+#endif // WITH_DMX
+
     // timeline stuff initialization
 #ifdef WITH_TIMELINE
     timelineSetup(timelineDurationSeconds);
 #endif
 
-#ifdef WITH_DMX
-    dmx.connect(port, modules * channelsPerModule);
-	dmx.update(true); // black on startup
-#endif // WITH_DMX
+
 
     // GUI STUFF ---------------------------------------------------
 
@@ -976,7 +981,7 @@ void ofApp::update()
     }
     #ifdef WITH_DMX
     int channel = 1;
-	for(int module = 1; module <= modules; module++) {
+	for(int module = 1; module <= fixtures; module++) {
         dmx.setLevel(channel++, red[module]*255);
 		dmx.setLevel(channel++, green[module]*255);
 		dmx.setLevel(channel++, blue[module]*255);

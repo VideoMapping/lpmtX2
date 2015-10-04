@@ -256,6 +256,18 @@ public:
     bool bOpenKinect;
     #endif
 
+    #ifdef WITH_DMX
+    ofxDmx dmx;
+    string port;
+    //12 fixtures, value will have to be read through XML?
+    int fixtures;
+    int channelsPerFixture;
+    ofParameter<bool> moduleNum[12];
+    // only 3 channels per fixtures (RGB), will have to had more later
+    ofParameter<float> red[12], green[12], blue[12];
+
+    #endif // WITH_DMX
+
     // timeline
     #ifdef WITH_TIMELINE
     ofxTimeline timeline;
@@ -285,16 +297,6 @@ public:
 	ofxSyphonClient syphClient;
     #endif
 
-    #ifdef WITH_DMX
-    ofxDmx dmx;
-    //12 fixtures, value will have to be read through XML?
-    int modules=12;
-    int channelsPerFixture;
-    ofParameter<bool> moduleNum[modules];
-    // only 3 channels per fixtures (RGB), will have to had more later
-    ofParameter<float> red[modules], green[modules], blue[modules];
-
-    #endif // WITH_DMX
 
 
 };

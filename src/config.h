@@ -1,6 +1,8 @@
 
 #define WITH_KINECT
 
+#define WITH_DMX
+
 #define WITH_TIMELINE
 
 #ifdef TARGET_OSX

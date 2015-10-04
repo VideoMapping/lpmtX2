@@ -11,6 +11,16 @@ void ofApp::timelineSetup(float duration){
     timeline.setPageName("main"); //changes the first page name
     timeline.addFlags("trigger_main", "timeline/main_trigger.xml");
 
+#ifdef WITH_DMX
+    timeline.addPage("DMX",true);
+    for (int channel=1; channel<=fixtures*channelsPerFixture; channel++){
+        timeline.addCurves("dmx_"+ofToString(channel), ofToString(channel)+"timeline/_dmx.xml", ofRange(0, 1.0));
+        //timeline.addCurves("red_"+ofToString(channel), ofToString(channel)+"timeline/_dmxred.xml", ofRange(0, 1.0));
+        //timeline.addCurves("green_"+ofToString(channel), ofToString(channel)+"timeline/_dmxgreen.xml", ofRange(0, 1.0));
+        //timeline.addCurves("blu_"+ofToString(channel), ofToString(channel)+"timeline/_dmxblu.xml", ofRange(0, 1.0));
+    }
+#endif
+
     for(int i = 0; i < 4; i++)
     {
         timelineAddQuadPage(i);
