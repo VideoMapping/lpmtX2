@@ -10,3 +10,5 @@
 #define WITH_MIDI
 
 #define WITH_VIDEO
+
+#define WITH_PREVIEW

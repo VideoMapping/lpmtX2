@@ -638,6 +638,16 @@ void ofApp::setup()
     }
 #endif
 
+#ifdef WITH_PREVIEW
+    //setup output streaming
+    if (XML.getValue("PREVIEW:ON",0)){
+        bPreview = true;
+        output_streamer.setup(320,240,XML.getValue("PREVIEW:DEVICE",5));
+        stream_image.allocate(ofGetScreenWidth(), ofGetScreenHeight(), OF_IMAGE_COLOR);
+    }
+#endif
+
+
     if(configOk)
     {
         autoStart = XML.getValue("PROJECTION:AUTO",0);
@@ -665,10 +675,6 @@ void ofApp::setup()
         bFullscreen = true;
         ofSetFullscreen(true);
     }
-
-    //setup output streaming **will need to be started before if we read parameters in xml config
-    output_streamer.setup(320,240,5);
-    stream_image.allocate(ofGetScreenWidth(), ofGetScreenHeight(), OF_IMAGE_COLOR);
 
 
 }
@@ -970,11 +976,16 @@ void ofApp::update()
         prepare();
     }
 
+#ifdef WITH_PREVIEW
+if (bPreview){
     // grab the gl buffer to stream through v4l2
     glReadBuffer(GL_FRONT);
     stream_image.grabScreen(0,0,1024,768);
     stream_image.resize(320,240);
     output_streamer.update(stream_image.getPixels());
+}
+#endif
+
 }
 
 //--------------------------------------------------------------
