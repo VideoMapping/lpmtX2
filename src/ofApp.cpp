@@ -670,6 +670,7 @@ void ofApp::setup()
     output_streamer.setup(320,240,5);
     stream_image.allocate(ofGetScreenWidth(), ofGetScreenHeight(), OF_IMAGE_COLOR);
 
+
 }
 
 void ofApp::exit()
@@ -968,8 +969,11 @@ void ofApp::update()
         }*/
         prepare();
     }
+
+    // grab the gl buffer to stream through v4l2
+    glReadBuffer(GL_FRONT);
     stream_image.grabScreen(0,0,1024,768);
-    cout<<"grabscreen"<<endl;
+    stream_image.resize(320,240);
     output_streamer.update(stream_image.getPixels());
 }
 
@@ -1057,6 +1061,7 @@ void ofApp::draw()
      {
           ofDrawBitmapString("FPS: " + ofToString(int(ofGetFrameRate())),20,ofGetHeight()-40);
      }
+
 }
 
 
