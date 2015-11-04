@@ -15,3 +15,4 @@ ofxMidi
 ofxSimpleGuiToo
 ofxMostPixelsEver
 ofxVideoBuffer
+ofxGstV4L2Sink
