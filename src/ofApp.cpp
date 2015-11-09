@@ -63,6 +63,18 @@ void ofApp::setup()
 
     // camera stuff
     cameras.clear();
+
+     //we can now get back a list of devices for debugging
+    /*vector<ofVideoDevice> devices = vidGrabber.listDevices();
+
+    for(unsigned int i = 0; i < devices.size(); i++){
+        if(devices[i].bAvailable){
+            ofLogNotice() << devices[i].id << ": " << devices[i].deviceName;
+        }else{
+            ofLogNotice() << devices[i].id << ": " << devices[i].deviceName << " - unavailable ";
+        }
+    }*/
+
     numOfCams = 0;
     bCameraOk = False;
     if(configOk)
@@ -80,6 +92,7 @@ void ofApp::setup()
             string cam_pix_format = XML.getValue("PIXEL_FORMAT","RGB");
             XML.popTag();
             ofVideoGrabber* cam=new ofVideoGrabber;
+            cam->listDevices();
             cam->setDeviceID(camID);
             cam->setVerbose(true);
             //set pixel Format
