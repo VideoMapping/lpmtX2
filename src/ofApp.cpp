@@ -992,9 +992,13 @@ void ofApp::update()
 #ifdef WITH_PREVIEW
 if (bPreview){
     // grab the gl buffer to stream through v4l2
-    glReadBuffer(GL_FRONT);
-    stream_image.grabScreen(0,0,1024,768);
-    stream_image.resize(320,240);
+    //grab only every 4frames to get perf
+    if (ofGetFrameNum() % 4 == 0){
+        glReadBuffer(GL_FRONT);
+        stream_image.grabScreen(0,0,1024,768);
+        stream_image.resize(320,240);
+        }
+
     output_streamer.update(stream_image.getPixels());
 }
 #endif

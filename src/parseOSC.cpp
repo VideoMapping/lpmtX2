@@ -2124,6 +2124,25 @@ void ofApp::parseOsc()
         }
     }
 
+    else if ( m.getAddress() == "/preview")
+    {
+        bPreview=!bPreview;
+
+    }
+    else if (m.getAddress() == "/preview/on")
+    {
+        // argument is int32
+        int preview_on = m.getArgAsInt32( 0 );
+        if(preview_on == 0)
+        {
+            bPreview = false;
+        }
+        else if(preview_on == 1)
+        {
+            bPreview = true;
+        }//
+    }
+
 
 //***//***//messages to address surface directly//***//***//
 
