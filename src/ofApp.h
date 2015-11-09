@@ -287,6 +287,7 @@ public:
     ofxGstV4L2Sink output_streamer;
     ofImage stream_image;
     bool bPreview=false;
+    int refresh_rate =4 ;
     #endif
 
 };

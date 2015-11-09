@@ -656,6 +656,7 @@ void ofApp::setup()
     if (XML.getValue("PREVIEW:ON",0)){
         bPreview = true;
         output_streamer.setup(320,240,XML.getValue("PREVIEW:DEVICE",5));
+        refresh_rate=XML.getValue("PREVIEW:REFRESH_RATE",4);
         stream_image.allocate(ofGetScreenWidth(), ofGetScreenHeight(), OF_IMAGE_COLOR);
     }
 #endif
@@ -993,7 +994,7 @@ void ofApp::update()
 if (bPreview){
     // grab the gl buffer to stream through v4l2
     //grab only every 4frames to get perf
-    if (ofGetFrameNum() % 4 == 0){
+    if (ofGetFrameNum() % refresh_rate == 0){
         glReadBuffer(GL_FRONT);
         stream_image.grabScreen(0,0,1024,768);
         stream_image.resize(320,240);
