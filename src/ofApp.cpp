@@ -1204,6 +1204,8 @@ void ofApp::keyPressed(int key)
             setXml();
             XML.saveFile("_lpmt_settings.xml");
             cout<<"saved settings to data/_lpmt_settings.xml"<<endl;
+            timeline.save();
+            cout<<"saved timeline"<<endl;
 
         }
 
