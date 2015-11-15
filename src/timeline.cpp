@@ -11,9 +11,8 @@ void ofApp::timelineSetup(float duration){
     timeline.setAutosave(true);
     timeline.setPageName("main"); //changes the first page name
     timeline.addFlags("trigger_main", "timeline/main_trigger.xml");
-    cout<<"flags added"<<endl;
 
-    for(int i = 0; i < 4; i++)
+    for(int i = 0; i < nOfQuads; i++)
     {
         timelineAddQuadPage(i);
     }
@@ -40,7 +39,7 @@ void ofApp::timelineUpdate()
 
 {
 
-            for(int j = 0; j < 6; j++)
+            for(int j = 0; j < nOfQuads; j++)
             {
                 if (quads[j].initialized)
                 {
@@ -201,8 +200,7 @@ void ofApp::timelineAddQuadPage(int i) {
 	timeline.addCurves("green_"+ofToString(i), ofToString(i)+"timeline/_green.xml", ofRange(0, 1.0));
 	timeline.addCurves("blu_"+ofToString(i), ofToString(i)+"timeline/_blu.xml", ofRange(0, 1.0));
 	timeline.addCurves("alpha_"+ofToString(i), ofToString(i)+"timeline/_alpha.xml", ofRange(0, 1.0));
-	timeline.addFlags("trigger_"+ofToString(i), "timeline/"+ofToString(i)+"_trigger.xml");
-	cout<<"timeline.addFlags trigger_"+ofToString(i)<<" XML "<< ofToString(i)+"timeline/_trigger.xml"<<endl;
+	timeline.addFlags("trigger_"+ofToString(i), ofToString(i)+"timeline/_trigger.xml");
 	timeline.addColors("color_"+ofToString(i), ofToString(i)+"timeline/_color.xml");
 	timeline.addCurves("brightness"+ofToString(i), ofToString(i), ofRange(0.0, 2.0), 1.0);
     timeline.addCurves("contrast"+ofToString(i), ofToString(i), ofRange(.5, 2.0), 1.0);

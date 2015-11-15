@@ -1204,8 +1204,6 @@ void ofApp::keyPressed(int key)
             setXml();
             XML.saveFile("_lpmt_settings.xml");
             cout<<"saved settings to data/_lpmt_settings.xml"<<endl;
-            timeline.save();
-            cout<<"saved timeline"<<endl;
 
         }
 
@@ -1228,6 +1226,11 @@ void ofApp::keyPressed(int key)
         {
             getXml("_lpmt_settings.xml");
             gui.setPage((activeQuad*4)+2);
+            //reload timeline config for new quads
+            #ifdef WITH_TIMELINE
+            timeline.reset();
+            timelineSetup(timelineDurationSeconds);
+            #endif
         }
 
         // choses a xml settings file and loads it
@@ -1241,6 +1244,11 @@ void ofApp::keyPressed(int key)
                 string filePath = dialog_result.getPath();
                 getXml(filePath);
                 gui.setPage((activeQuad*4)+2);
+                //reload timeline config for new quads
+                #ifdef WITH_TIMELINE
+                timeline.reset();
+                timelineSetup(timelineDurationSeconds);
+                #endif
             }
         }
 
