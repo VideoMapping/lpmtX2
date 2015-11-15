@@ -202,15 +202,6 @@ void ofApp::getXml(string xmlFile)
     useTimeline = XML.getValue("TIMELINE:USE_TIMELINE",0);
     timelineDurationSeconds = XML.getValue("TIMELINE:DURATION",500);
 
-    for(int j=0; j<4; j++)
-    {
-        string sharedVideoPath = XML.getValue("SHARED_VIDEOS:VIDEO_"+ofToString(j)+":PATH", "");
-        sharedVideosFiles[j] = sharedVideoPath;
-        if(sharedVideoPath != "")
-        {
-            openSharedVideoFile(sharedVideoPath, j);
-        }
-    }
 
     for(int i = 0; i < nOfQuads; i++)
     {
@@ -412,6 +403,16 @@ void ofApp::getXml(string xmlFile)
 
         quads[i].isOn = XML.getValue("QUADS:QUAD_"+ofToString(i)+":IS_ON",0);
         quads[i].isActive = false;
+    }
+    // load shared videos after quads
+    for(int j=0; j<4; j++)
+    {
+        string sharedVideoPath = XML.getValue("SHARED_VIDEOS:VIDEO_"+ofToString(j)+":PATH", "");
+        sharedVideosFiles[j] = sharedVideoPath;
+        if(sharedVideoPath != "")
+        {
+            openSharedVideoFile(sharedVideoPath, j);
+        }
     }
     quads[activeQuad].isActive = True;
     gui.setPage((activeQuad*3)+2);
