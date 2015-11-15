@@ -187,6 +187,10 @@ void ofApp::timelineTriggerReceived(ofxTLBangEventArgs& trigger){
                     }
                 }
             }
+            else if (tlMsg == "timeline_stop")
+            {
+                timeline.stop();
+            }
 
 
         }
