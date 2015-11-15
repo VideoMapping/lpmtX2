@@ -137,6 +137,8 @@ void ofApp::setXml()
 
             XML.setValue("QUADS:QUAD_"+ofToString(i)+":SHARED_VIDEO:ACTIVE",quads[i].sharedVideoBg);
             XML.setValue("QUADS:QUAD_"+ofToString(i)+":SHARED_VIDEO:NUM",quads[i].sharedVideoNum);
+            XML.getValue("QUADS:QUAD_"+ofToString(i)+":SHARED_VIDEO:FIT",quads[i].sVideoFit);
+            XML.getValue("QUADS:QUAD_"+ofToString(i)+":SHARED_VIDEO:KEEP_ASPECT", quads[i].sVideoKeepAspect);
 
             XML.setValue("QUADS:QUAD_"+ofToString(i)+":BLENDING:ON",quads[i].bBlendModes);
             XML.setValue("QUADS:QUAD_"+ofToString(i)+":BLENDING:MODE",quads[i].blendMode);
@@ -277,6 +279,8 @@ void ofApp::getXml(string xmlFile)
 
         quads[i].sharedVideoBg = XML.getValue("QUADS:QUAD_"+ofToString(i)+":SHARED_VIDEO:ACTIVE",0);
         quads[i].sharedVideoNum = XML.getValue("QUADS:QUAD_"+ofToString(i)+":SHARED_VIDEO:NUM", 1);
+        quads[i].sVideoFit = XML.getValue("QUADS:QUAD_"+ofToString(i)+":SHARED_VIDEO:FIT",1);
+        quads[i].sVideoKeepAspect = XML.getValue("QUADS:QUAD_"+ofToString(i)+":SHARED_VIDEO:KEEP_ASPECT", 0);
 
         quads[i].bgSlideshow = XML.getValue("QUADS:QUAD_"+ofToString(i)+":SLIDESHOW:LOADED_SLIDESHOW", 0);
 
