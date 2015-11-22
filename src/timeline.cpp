@@ -8,10 +8,11 @@ void ofApp::timelineSetup(float duration){
     timeline.setSpacebarTogglePlay(false);
     timeline.setWorkingFolder("timeline/");
     timeline.setDurationInSeconds(duration);
+    timeline.setAutosave(true);
     timeline.setPageName("main"); //changes the first page name
     timeline.addFlags("trigger_main", "timeline/main_trigger.xml");
 
-    for(int i = 0; i < 4; i++)
+    for(int i = 0; i < nOfQuads; i++)
     {
         timelineAddQuadPage(i);
     }
@@ -38,7 +39,7 @@ void ofApp::timelineUpdate()
 
 {
 
-            for(int j = 0; j < 6; j++)
+            for(int j = 0; j < nOfQuads; j++)
             {
                 if (quads[j].initialized)
                 {
@@ -185,6 +186,10 @@ void ofApp::timelineTriggerReceived(ofxTLBangEventArgs& trigger){
                         quads[j].video.play();
                     }
                 }
+            }
+            else if (tlMsg == "timeline_stop")
+            {
+                timeline.stop();
             }
 
 

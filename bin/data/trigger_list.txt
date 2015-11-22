@@ -33,5 +33,6 @@
         Mask off = mask_off
         Mask invert on = mask_invert_on
         Mask invert off = mask_invert_off
+	timeline stop = timeline_stop //main page trigger
  }       
         
