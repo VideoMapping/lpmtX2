@@ -654,10 +654,18 @@ void ofApp::setup()
 #ifdef WITH_PREVIEW
     //setup output streaming
     if (XML.getValue("PREVIEW:ON",0)){
+            cout<<"passe====================="<<endl;
         bPreview = true;
-        output_streamer.setup(320,240,XML.getValue("PREVIEW:DEVICE",5));
+        //output_streamer.setup(320,240,XML.getValue("PREVIEW:DEVICE",5));
+        output_streamer.setup(ofGetScreenWidth(), ofGetScreenHeight(),XML.getValue("PREVIEW:DEVICE",5));
         refresh_rate=XML.getValue("PREVIEW:REFRESH_RATE",4);
-        stream_image.allocate(ofGetScreenWidth(), ofGetScreenHeight(), OF_IMAGE_COLOR);
+        //stream_image.allocate(ofGetScreenWidth(), ofGetScreenHeight(), OF_IMAGE_COLOR);
+        stream_Fbo.allocate(ofGetScreenWidth(), ofGetScreenHeight(), GL_RGBA);
+        stream_Pixels.allocate(ofGetScreenWidth(), ofGetScreenHeight(), OF_IMAGE_COLOR);
+    cout<<"allocate OK"<<endl;
+        stream_Fbo.begin();
+            ofClear(255,255,255, 0);
+        stream_Fbo.end();
     }
 #endif
 
@@ -961,7 +969,13 @@ void ofApp::dostuff()
                 if (quads[i].initialized)
                 {
                     quads[i].draw();
+                    #ifdef WITH_PREVIEW
+                    quads[3].quadFbo.getTexture().readToPixels(stream_Pixels);
+
+                    //cout<<quads[i].quadFbo.isUsingTexture()<<endl;
+                    #endif
                 }
+                quads[3].quadFbo.getTexture().draw(320,240,320,240);
             }
         }
     }
@@ -994,13 +1008,28 @@ void ofApp::update()
 if (bPreview){
     // grab the gl buffer to stream through v4l2
     //grab only every 4frames to get perf
-    if (ofGetFrameNum() % refresh_rate == 0){
+    /*if (ofGetFrameNum() % refresh_rate == 0){
         glReadBuffer(GL_FRONT);
         stream_image.grabScreen(0,0,1024,768);
         stream_image.resize(320,240);
         }
 
-    output_streamer.update(stream_image.getPixels());
+    output_streamer.update(stream_image.getPixels());*/
+
+    // grab the FBO to stream through v4l2
+    //grab only every 4frames to get perf
+    //stream_Fbo.end();
+    if (ofGetFrameNum() % refresh_rate == 0){
+        /*glReadBuffer(GL_FRONT);
+        stream_image.grabScreen(0,0,1024,768);
+        stream_image.resize(320,240);*/
+
+       /* stream_Fbo.readToPixels(stream_Pixels);*/
+        //stream_Pixels.resize(320,240);
+        }
+
+    output_streamer.update(stream_Pixels);
+
 }
 #endif
 
@@ -1009,6 +1038,10 @@ if (bPreview){
 //--------------------------------------------------------------
 void ofApp::draw()
 {
+
+#ifdef WITH_PREVIEW
+//stream_Fbo.begin();
+#endif // WITH_PREVIEW
 
     // in setup mode writes the number of active quad at the bottom of the window
     if (isSetup)
@@ -1090,6 +1123,11 @@ void ofApp::draw()
      {
           ofDrawBitmapString("FPS: " + ofToString(int(ofGetFrameRate())),20,ofGetHeight()-40);
      }
+
+#ifdef WITH_PREVIEW
+//stream_Fbo.end();
+//stream_Fbo.draw(ofGetScreenWidth(), ofGetScreenHeight());
+#endif // WITH_PREVIEW
 
 }
 

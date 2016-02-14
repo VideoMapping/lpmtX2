@@ -286,6 +286,8 @@ public:
     #ifdef WITH_PREVIEW
     ofxGstV4L2Sink output_streamer;
     ofImage stream_image;
+    ofFbo stream_Fbo;
+    ofPixels stream_Pixels;
     bool bPreview=false;
     int refresh_rate =4 ;
     #endif
