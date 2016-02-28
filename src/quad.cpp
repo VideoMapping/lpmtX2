@@ -1299,6 +1299,7 @@ void quad::draw()
                             glScalef(targetFbo.getTextureReference().getWidth() / texData.tex_w, targetFbo.getTextureReference().getHeight() / texData.tex_h, 1.0f);
                         }
                         glMatrixMode(GL_MODELVIEW);
+                        glPolygonMode(GL_FRONT,GL_FILL);
 
                         glEnable(GL_MAP2_VERTEX_3);
                         glEnable(GL_AUTO_NORMAL);
@@ -1402,11 +1403,13 @@ void quad::draw()
                                 glScalef(targetFbo.getTextureReference().getWidth() / texData.tex_w, targetFbo.getTextureReference().getHeight() / texData.tex_h, 1.0f);
                             }
                             glMatrixMode(GL_MODELVIEW);
+                            //glPolygonMode(GL_FRONT,GL_FILL);
                             glEnable(GL_MAP2_VERTEX_3);
                             glEnable(GL_AUTO_NORMAL);
                             // this tries to prevent the double alpha problem
                             glEnable(GL_BLEND);
-                            glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+                            //glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+
                             //draw the bezier shape
                             glEvalMesh2(GL_FILL, 0, 20, 0, 20);
                             glDisable(GL_BLEND);
@@ -1485,6 +1488,7 @@ void quad::draw()
                                 glScalef(quadFbo.getTextureReference().getWidth() / texData.tex_w, quadFbo.getTextureReference().getHeight() / texData.tex_h, 1.0f);
                             }
                             glMatrixMode(GL_MODELVIEW);
+                            glPolygonMode(GL_FRONT,GL_FILL);
                             //draw the bezier shape
                             glEnable(GL_MAP2_VERTEX_3);
                             glEnable(GL_AUTO_NORMAL);
