@@ -46,13 +46,13 @@ Screenshots:
 ------------
 model in Wire texture mode loaded to quad ...
 
-![Alt tag](https://raw.github.com/giladx/lpmt/master/bin/data/img/3d1.png)
+![Alt tag](https://github.com/Giladx/lpmtX/blob/master/bin/data/img/3d1.png)
 
-![Alt tag](https://raw.github.com/giladx/lpmt/master/bin/data/img/3d2.png)
+![Alt tag](https://github.com/Giladx/lpmtX/blob/master/bin/data/img/3d2.png)
 
-![Alt tag](https://raw.github.com/giladx/lpmt/master/bin/data/img/3d3.png)
+![Alt tag](https://github.com/Giladx/lpmtX/blob/master/bin/data/img/3d3.png)
 
-![Alt tag](https://raw.github.com/giladx/lpmt/master/bin/data/img/3d4.png)
+![Alt tag](https://github.com/Giladx/lpmtX/blob/master/bin/data/img/3d4.png)
 
 The Source
 -----------
